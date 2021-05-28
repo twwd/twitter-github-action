@@ -16,5 +16,5 @@ jobs:
           twitter_access_token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
           twitter_access_token_secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
           tweet_body: |
-            We just released version ${{ github.event.release.tag_name }} of ${{ github.event.repo.name }} 🎉
+            We just released version ${{ github.event.release.tag_name }} of ${{ github.event.repository.name }} 🎉
             Check it out here ${{ github.event.release.html_url }}
