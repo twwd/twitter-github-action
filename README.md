@@ -35,7 +35,7 @@ Store these tokens and keys as secrets in your repository, e.g. as
 name: "Tweet about release"
 on:
   release:
-    types: [ published ]
+    types: [ released ]
 jobs:
   build:
     runs-on: ubuntu-latest
