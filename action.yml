@@ -1,0 +1,30 @@
+name : Twitter GitHub Action
+description: Tweets from a GitHub action workflow.
+branding:
+  icon: send
+  color: purple
+inputs:
+  tweet_body:
+    description: 'The actual content of the tweet.'
+    required: true
+  twitter_api_key:
+    description: 'The Twitter consumer API key'
+    required: true
+  twitter_api_secret_key:
+    description: 'The Twitter consumer API secret key'
+    required: true
+  twitter_access_token:
+    description: 'The Twitter access token for the user'
+    required: true
+  twitter_access_token_secret:
+    description: 'The Twitter access token secret for the user'
+    required: true
+runs:
+  using: docker
+  image: Dockerfile
+  env:
+    TWITTER_API_KEY : ${{ inputs.twitter_api_key }}
+    TWITTER_API_SECRET_KEY : ${{ inputs.twitter_api_secret_key }}
+    TWITTER_ACCESS_TOKEN : ${{ inputs.twitter_access_token }}
+    TWITTER_ACCESS_TOKEN_SECRET : ${{ inputs.twitter_access_token_secret }}
+    TWEET_BODY : ${{ inputs.tweet_body }}
