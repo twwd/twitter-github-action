@@ -1,0 +1,20 @@
+name: "Tweet about release"
+on:
+  release:
+    types: [ published ]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2 # Needed for relative action path in the next step
+      - name: Tweet
+        uses: ./
+        with:
+          twitter_api_key: ${{ secrets.TWITTER_API_KEY }}
+          twitter_api_secret_key: ${{ secrets.TWITTER_API_SECRET_KEY }}
+          twitter_access_token: ${{ secrets.TWITTER_ACCESS_TOKEN }}
+          twitter_access_token_secret: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
+          tweet_body: |
+            We just released version ${{ github.event.release.tag_name }} of ${{ github.event.repo.name }} 🎉
+            Check it out here ${{ github.event.release.html_url }}
