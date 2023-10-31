@@ -1,5 +1,7 @@
 # Twitter GitHub Action
 
+**This action is unmaintained and probably does not work anymore.**
+
 Tweets from a GitHub action workflow.
 
 ## Twitter Application Setup
